@@ -58,7 +58,7 @@ Resulting directory tree looks like:
 |   |   `-- fluido
 |   `-- wagon
 |-- plexus
-|   |-- .github
+|   |-- github
 |   |-- classworlds
 |   |-- codehaus-plexus.github.io
 |   |-- components
