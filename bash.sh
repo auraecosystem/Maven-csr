@@ -1,3 +1,25 @@
+cat << 'EOF' > parallel_demo.mojo
+from algorithm import parallelize
+
+@value
+struct Point:
+    var x: Float32
+    var y: Float32
+
+    fn distance_from_origin(self) -> Float32:
+        return (self.x * self.x + self.y * self.y).sqrt()
+
+fn main():
+    let num_items = 8
+
+    @parameter
+    fn worker(index: Int):
+        let p = Point(Float32(index), Float32(index * 2))
+        let dist = p.distance_from_origin()
+        print("Index:", index, "| Distance:", dist)
+
+    parallelize[worker](num_items)
+EOF
 cd sources/aggregator
 mvn --fail-at-end -Prun-its verify
 mvn --fail-at-end -Preporting site
