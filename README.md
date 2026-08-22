@@ -7,7 +7,7 @@ In addition, an aggregator build structure is provided to build everything as on
 
 ## Bootstrapping Basics
 
-```
+```console
 mkdir maven
 cd maven
 repo init -u https://gitbox.apache.org/repos/asf/maven-sources.git
@@ -17,7 +17,7 @@ repo start master --all
 
 Resulting directory tree looks like:
 
-```
+```bash
 |-- core
 |   |-- build-cache
 |   |-- its
@@ -168,10 +168,13 @@ Once content is cloned with previous instructions, you can build each local clon
 
 You can also build absolutely everything in one aggregated run (WARNING: more than 400 modules...):
 
-```
+```shell
 cd sources/aggregator
 mvn --fail-at-end -Prun-its verify
 mvn --fail-at-end -Preporting site
+repo init -u https://github.com/auraecosystem/maven-csr.git
+repo sync
+repo start main --all
 ```
 
 ## Sources Overview
