@@ -3,10 +3,13 @@ mvn --fail-at-end -Prun-its verify
 mvn --fail-at-end -Preporting site
 repo init -u https://github.com/auraecosystem/maven-csr.git
 repo sync
-repo start main --all
-
-mkdir maven
+repo start doxia-569 --all
+mkdir mavenmkdir maven
+cd maven
+repo init -u https://gitbox.apache.org/repos/asf/maven-sources.git
+repo sync
+repo start doxia-569 --all
 cd maven
 repo init -u https://github.com/auraecosystem/maven-csr.git
 repo sync
-repo start doxia-509 --all
+repo start doxia-569 --all
