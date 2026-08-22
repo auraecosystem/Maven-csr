@@ -13,3 +13,5 @@ cd maven
 repo init -u https://github.com/auraecosystem/maven-csr.git
 repo sync
 repo start doxia-569 --all
+gcc main.c ascii.c -o ascii_art
+./ascii_art
