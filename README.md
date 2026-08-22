@@ -172,7 +172,7 @@ You can also build absolutely everything in one aggregated run (WARNING: more th
 cd sources/aggregator
 repo init -u https://github.com/apache/maven-sources.git
 repo sync
-repo start master --all
+repo start doxia569 --all
 
 ```
 
