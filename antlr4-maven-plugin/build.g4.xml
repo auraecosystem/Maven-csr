@@ -1,0 +1,30 @@
+<build>
+    <plugins>
+        <!-- ANTLR4 Source Generator -->
+        <plugin>
+            <groupId>org.antlr</groupId>
+            <artifactId>antlr4-maven-plugin</artifactId>
+            <version>4.13.1</version>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>antlr4</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+        <!-- Sisu Component Indexer -->
+        <plugin>
+            <groupId>org.eclipse.sisu</groupId>
+            <artifactId>sisu-maven-plugin</artifactId>
+            <version>0.3.5</version>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>main-index</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+    </plugins>
+</build>
