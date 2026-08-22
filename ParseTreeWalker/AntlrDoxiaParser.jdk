@@ -1,0 +1,42 @@
+package com.example.doxia.antlr;
+
+import org.antlr.v4.runtime.*;
+import org.antlr.v4.runtime.tree.ParseTree;
+import org.antlr.v4.runtime.tree.ParseTreeWalker;
+import org.apache.maven.doxia.parser.AbstractTextParser;
+import org.apache.maven.doxia.parser.ParseException;
+import org.apache.maven.doxia.sink.Sink;
+
+import javax.inject.Named;
+import javax.inject.Singleton;
+import java.io.Reader;
+
+@Named("antlr")
+@Singleton
+public class AntlrDoxiaParser extends AbstractTextParser {
+
+    @Override
+    public void parse(Reader reader, Sink sink) throws ParseException {
+        try {
+            CharStream input = CharStreams.fromReader(reader);
+            DocLanguageLexer lexer = new DocLanguageLexer(input);
+            CommonTokenStream tokens = new CommonTokenStream(lexer);
+            DocLanguageParser parser = new DocLanguageParser(tokens);
+
+            ParseTree tree = parser.doc();
+
+            sink.head();
+            sink.head_();
+            sink.body();
+
+            DoxiaEmitterListener listener = new DoxiaEmitterListener(sink);
+            ParseTreeWalker walker = new ParseTreeWalker();
+            walker.walk(listener, tree);
+
+            sink.body_();
+            sink.flush();
+        } catch (Exception e) {
+            throw new ParseException("ANTLR parsing failed", e);
+        }
+    }
+}
