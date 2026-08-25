@@ -12,7 +12,7 @@ mkdir maven
 cd maven
 repo init -u https://gitbox.apache.org/repos/asf/maven-sources.git
 repo sync
-repo start master --all
+repo start main --all
 ```
 
 Resulting directory tree looks like:
@@ -172,7 +172,7 @@ You can also build absolutely everything in one aggregated run (WARNING: more th
 cd sources/aggregator
 repo init -u https://github.com/apache/maven-sources.git
 repo sync
-repo start doxia-569 --all
+repo start maint --all
 
 ```
 
