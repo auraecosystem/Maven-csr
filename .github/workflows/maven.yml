@@ -10,7 +10,7 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ "DOXIA-569" ]
+    branches: [ "main" ]
   pull_request:
     branches: [ "DOXIA-569" ]
 
