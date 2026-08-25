@@ -37,3 +37,7 @@ repo sync
 repo start doxia-569 --all
 gcc main.c ascii.c -o ascii_art
 ./ascii_art
+git branch -m DOXIA-569 maint
+git fetch origin
+git branch -u origin/maint maint
+git remote set-head origin -a
